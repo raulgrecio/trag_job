@@ -14,6 +14,7 @@ class SideMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      elevation: 1,
       child: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,7 +23,12 @@ class SideMenu extends StatelessWidget {
             width: double.infinity,
             height: 100.0,
             child: DrawerHeader(
-              child: Image.asset("assets/images/logo.png"),
+              margin: const EdgeInsets.only(bottom: 8.0),
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: Image.asset("assets/images/logo.png"),
+              ),
             ),
           ),
           _DrawerList(),

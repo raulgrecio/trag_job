@@ -19,11 +19,11 @@ class Responsive extends StatelessWidget {
       MediaQuery.of(context).size.width < 600;
 
   static bool isTablet(BuildContext context) =>
-      MediaQuery.of(context).size.width < 1100 &&
+      MediaQuery.of(context).size.width < 1024 &&
       MediaQuery.of(context).size.width >= 600;
 
   static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 1100;
+      MediaQuery.of(context).size.width >= 1024;
 
   static bool portrait(BuildContext context) =>
       MediaQuery.of(context).orientation == Orientation.portrait;

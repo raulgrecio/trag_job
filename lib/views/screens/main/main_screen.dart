@@ -28,10 +28,11 @@ class MainScreen extends StatelessWidget {
           children: [
             if (Responsive.isDesktop(context))
               Expanded(
+                flex: 3,
                 child: SideMenu(),
               ),
             Expanded(
-              flex: 5,
+              flex: 8,
               child: DashboardScreen(),
             ),
           ],
