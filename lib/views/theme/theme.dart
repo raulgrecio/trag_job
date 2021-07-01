@@ -77,3 +77,9 @@ class CorePadding {
   static const big = normal + (normal / 2);
   static const bigger = normal * 2;
 }
+
+class CoreContansts {
+  CoreContansts._();
+
+  static const borderRadius = 20.0;
+}

@@ -11,29 +11,57 @@ class SideMenu extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  final logoHeight = 100.0;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
       elevation: (!Responsive.isDesktop(context)) ? 16.0 : 1.0,
       child: Column(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            width: double.infinity,
-            height: 100.0,
-            child: DrawerHeader(
-              margin: const EdgeInsets.only(bottom: 8.0),
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: Image.asset("assets/images/logo.png"),
+          _DrawerLogo(height: logoHeight),
+          Expanded(
+            child: SingleChildScrollView(
+              child: IntrinsicHeight(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: MediaQuery.of(context).size.height - logoHeight,
+                  ),
+                  child: Column(
+                    children: [
+                      _DrawerList(),
+                      Spacer(),
+                      _ProfileCard(),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
-          _DrawerList(),
-          _ProfileCard(),
         ],
+      ),
+    );
+  }
+}
+
+class _DrawerLogo extends StatelessWidget {
+  const _DrawerLogo({
+    required this.height,
+  });
+
+  final double height;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: height,
+      child: DrawerHeader(
+        margin: const EdgeInsets.only(bottom: 8.0),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          child: Image.asset("assets/images/logo.png"),
+        ),
       ),
     );
   }
@@ -48,11 +76,11 @@ class _DrawerList extends StatelessWidget {
   Widget build(BuildContext context) {
     final drawerBloc = BlocProvider.of<NavigationDrawerBloc>(context);
 
-    return Expanded(
-      child: BlocBuilder<NavigationDrawerBloc, NavigationDrawerState>(
-        builder: (context, state) {
-          return ListView(
-            padding: const EdgeInsets.symmetric(horizontal: CorePadding.big),
+    return BlocBuilder<NavigationDrawerBloc, NavigationDrawerState>(
+      builder: (context, state) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: CorePadding.normal),
+          child: Column(
             children: [
               _DrawerListTile(
                 title: "Dashboard",
@@ -94,6 +122,9 @@ class _DrawerList extends StatelessWidget {
                 },
                 selected: NavItem.page_five == state.selectedItem,
               ),
+              _DrawerCategoryTile(
+                title: "Other",
+              ),
               _DrawerListTile(
                 title: "Notifications",
                 svgSrc: "assets/icons/menu_notifications.svg",
@@ -111,8 +142,27 @@ class _DrawerList extends StatelessWidget {
                 selected: NavItem.page_seven == state.selectedItem,
               ),
             ],
-          );
-        },
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _DrawerCategoryTile extends StatelessWidget {
+  const _DrawerCategoryTile({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      subtitle: Text(
+        title,
+        style: Theme.of(context).textTheme.caption,
       ),
     );
   }
@@ -134,7 +184,7 @@ class _DrawerListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(20.0),
+      borderRadius: BorderRadius.circular(CoreContansts.borderRadius),
       child: Container(
         color: selected ? CoreColors.primary : null,
         child: ListTile(
@@ -150,7 +200,7 @@ class _DrawerListTile extends StatelessWidget {
             style: TextStyle(color: Colors.black87),
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
+            borderRadius: BorderRadius.circular(CoreContansts.borderRadius),
           ),
         ),
       ),
