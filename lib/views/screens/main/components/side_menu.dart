@@ -68,10 +68,6 @@ class _DrawerLogo extends StatelessWidget {
 }
 
 class _DrawerList extends StatelessWidget {
-  const _DrawerList({
-    Key? key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final drawerBloc = BlocProvider.of<NavigationDrawerBloc>(context);
