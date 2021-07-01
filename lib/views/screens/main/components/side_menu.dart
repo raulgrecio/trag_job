@@ -170,9 +170,12 @@ class _ProfileCard extends StatelessWidget {
                   SizedBox(
                     height: CorePadding.normal,
                   ),
-                  Text(
-                    "Open profile",
-                    style: Theme.of(context).textTheme.bodyText2,
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Open profile",
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
                   )
                 ],
               ),

@@ -7,10 +7,6 @@ import 'package:trag_work/views/theme/theme.dart';
 import 'package:trag_work/views/utils/responsive.dart';
 
 class Header extends StatelessWidget {
-  const Header({
-    Key? key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final drawerBloc = BlocProvider.of<NavigationDrawerBloc>(context);
@@ -41,10 +37,6 @@ class Header extends StatelessWidget {
 }
 
 class _BreadcrumbsCard extends StatelessWidget {
-  const _BreadcrumbsCard({
-    Key? key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -74,10 +66,6 @@ class _BreadcrumbsCard extends StatelessWidget {
 }
 
 class _SearchField extends StatelessWidget {
-  const _SearchField({
-    Key? key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return TextField(
