@@ -29,4 +29,5 @@ enum NavItem {
   page_five,
   page_six,
   page_seven,
+  page_null,
 }

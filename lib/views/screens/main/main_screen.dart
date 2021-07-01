@@ -18,8 +18,10 @@ class MainScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.ac_unit_sharp),
         onPressed: () {
-          drawerBloc.add(NavigateTo(NavItem.page_one));
-          drawerBloc.add(OpenDrawer());
+          drawerBloc.add(NavigateTo(NavItem.page_null));
+          if (!Responsive.isDesktop(context)) {
+            drawerBloc.add(OpenDrawer());
+          }
         },
       ),
       body: SafeArea(

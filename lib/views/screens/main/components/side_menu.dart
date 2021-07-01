@@ -14,7 +14,7 @@ class SideMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      elevation: 1,
+      elevation: (!Responsive.isDesktop(context)) ? 16.0 : 1.0,
       child: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,6 +46,8 @@ class _DrawerList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final drawerBloc = BlocProvider.of<NavigationDrawerBloc>(context);
+
     return Expanded(
       child: BlocBuilder<NavigationDrawerBloc, NavigationDrawerState>(
         builder: (context, state) {
@@ -55,43 +57,57 @@ class _DrawerList extends StatelessWidget {
               _DrawerListTile(
                 title: "Dashboard",
                 svgSrc: "assets/icons/menu_dashbord.svg",
-                press: () {},
+                press: () {
+                  drawerBloc.add(NavigateTo(NavItem.page_one));
+                },
                 selected: NavItem.page_one == state.selectedItem,
               ),
               _DrawerListTile(
                 title: "Food & Drinks",
                 svgSrc: "assets/icons/menu_food.svg",
-                press: () {},
+                press: () {
+                  drawerBloc.add(NavigateTo(NavItem.page_two));
+                },
                 selected: NavItem.page_two == state.selectedItem,
               ),
               _DrawerListTile(
                 title: "Messages",
                 svgSrc: "assets/icons/menu_messages.svg",
-                press: () {},
+                press: () {
+                  drawerBloc.add(NavigateTo(NavItem.page_three));
+                },
                 selected: NavItem.page_three == state.selectedItem,
               ),
               _DrawerListTile(
                 title: "Bills",
                 svgSrc: "assets/icons/menu_bills.svg",
-                press: () {},
+                press: () {
+                  drawerBloc.add(NavigateTo(NavItem.page_four));
+                },
                 selected: NavItem.page_four == state.selectedItem,
               ),
               _DrawerListTile(
                 title: "Settings",
                 svgSrc: "assets/icons/menu_settings.svg",
-                press: () {},
+                press: () {
+                  drawerBloc.add(NavigateTo(NavItem.page_five));
+                },
                 selected: NavItem.page_five == state.selectedItem,
               ),
               _DrawerListTile(
                 title: "Notifications",
                 svgSrc: "assets/icons/menu_notifications.svg",
-                press: () {},
+                press: () {
+                  drawerBloc.add(NavigateTo(NavItem.page_six));
+                },
                 selected: NavItem.page_six == state.selectedItem,
               ),
               _DrawerListTile(
                 title: "Support",
                 svgSrc: "assets/icons/menu_support.svg",
-                press: () {},
+                press: () {
+                  drawerBloc.add(NavigateTo(NavItem.page_seven));
+                },
                 selected: NavItem.page_seven == state.selectedItem,
               ),
             ],
@@ -122,7 +138,7 @@ class _DrawerListTile extends StatelessWidget {
       child: Container(
         color: selected ? CoreColors.primary : null,
         child: ListTile(
-          onTap: press,
+          onTap: !selected ? press : null,
           horizontalTitleGap: 0.0,
           leading: SvgPicture.asset(
             svgSrc,
