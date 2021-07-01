@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:trag_work/views/utils/constants.dart';
+
+import 'package:trag_work/views/theme/theme.dart';
 
 import 'components/header.dart';
 
@@ -8,11 +9,11 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
-        padding: EdgeInsets.all(defaultPadding),
+        padding: EdgeInsets.all(CorePadding.normal),
         child: Column(
           children: [
             Header(),
-            SizedBox(height: defaultPadding),
+            SizedBox(height: CorePadding.normal),
             // Row(
             //   crossAxisAlignment: CrossAxisAlignment.start,
             //   children: [

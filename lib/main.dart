@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'blocs/navigation_drawer/navigation_drawer_bloc.dart';
 
 import 'views/screens/main/main_screen.dart';
-import 'package:trag_work/controllers/MenuController.dart';
-import 'views/utils/constants.dart';
+import 'views/theme/theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,27 +13,15 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Trag Work',
-      theme: ThemeData.light().copyWith(
-        scaffoldBackgroundColor: bgColor,
-        canvasColor: bgColor,
-        textTheme: ThemeData.light().textTheme.apply(
-              fontFamily: 'Gilroy',
-              bodyColor: Colors.black54,
-              displayColor: Colors.amber,
-            ),
-        textSelectionTheme: TextSelectionThemeData(
-          cursorColor: Colors.black54,
-        ),
-      ),
-      home: MultiProvider(
-        providers: [
-          ChangeNotifierProvider<MenuController>(
-              create: (_) => MenuController()),
-        ],
-        child: MainScreen(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (BuildContext _) => new NavigationDrawerBloc()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'TragWork',
+        theme: coreThemeData,
+        home: MainScreen(),
       ),
     );
   }
