@@ -57,9 +57,11 @@ class _DrawerLogo extends StatelessWidget {
       width: double.infinity,
       height: height,
       child: DrawerHeader(
-        margin: const EdgeInsets.only(bottom: 8.0),
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          padding: const EdgeInsets.symmetric(
+            horizontal: CorePadding.normal,
+            vertical: CorePadding.normal,
+          ),
           child: Image.asset("assets/images/logo.png"),
         ),
       ),
@@ -75,7 +77,8 @@ class _DrawerList extends StatelessWidget {
     return BlocBuilder<NavigationDrawerBloc, NavigationDrawerState>(
       builder: (context, state) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: CorePadding.normal),
+          padding: const EdgeInsets.symmetric(
+              horizontal: CorePadding.normal, vertical: CorePadding.normal),
           child: Column(
             children: [
               _DrawerListTile(
@@ -180,7 +183,7 @@ class _DrawerListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(CoreContansts.borderRadius),
+      borderRadius: BorderRadius.circular(CoreConstant.borderRadius),
       child: Container(
         color: selected ? CoreColors.primary : null,
         child: ListTile(
@@ -189,14 +192,14 @@ class _DrawerListTile extends StatelessWidget {
           leading: SvgPicture.asset(
             svgSrc,
             color: Colors.black87,
-            height: 20,
+            height: CoreConstant.sizeIcon,
           ),
           title: Text(
             title,
             style: TextStyle(color: Colors.black87),
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(CoreContansts.borderRadius),
+            borderRadius: BorderRadius.circular(CoreConstant.borderRadius),
           ),
         ),
       ),

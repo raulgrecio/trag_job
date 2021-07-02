@@ -19,7 +19,7 @@ class Header extends StatelessWidget {
       children: [
         if (!Responsive.isDesktop(context))
           ClipRRect(
-            borderRadius: BorderRadius.circular(CoreContansts.borderRadius),
+            borderRadius: BorderRadius.circular(CoreConstant.borderRadius),
             child: Material(
               child: IconButton(
                 icon: Icon(Icons.menu),
@@ -51,14 +51,14 @@ class _BreadcrumbsCard extends StatelessWidget {
       child: Row(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(CoreContansts.borderRadius),
+            borderRadius: BorderRadius.circular(CoreConstant.borderRadius),
             child: Material(
               child: Ink(
                 decoration: ShapeDecoration(
                   color: CoreColors.grey,
                   shape: RoundedRectangleBorder(
                     borderRadius:
-                        BorderRadius.circular(CoreContansts.borderRadius),
+                        BorderRadius.circular(CoreConstant.borderRadius),
                   ),
                 ),
                 child: IconButton(
@@ -110,7 +110,8 @@ class _SearchField extends StatelessWidget {
         filled: true,
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          borderRadius: const BorderRadius.all(
+              Radius.circular(CoreConstant.borderRadius)),
         ),
         prefixIcon: ClipRRect(
           borderRadius: BorderRadius.circular(50),
@@ -121,7 +122,8 @@ class _SearchField extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(CorePadding.normal * 0.75),
                 decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(20)),
+                  borderRadius: const BorderRadius.all(
+                      Radius.circular(CoreConstant.borderRadius)),
                 ),
                 child: SvgPicture.asset(
                   "assets/icons/search.svg",
