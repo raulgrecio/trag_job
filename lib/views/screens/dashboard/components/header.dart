@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_breadcrumb/flutter_breadcrumb.dart';
 
 import 'package:trag_work/blocs/navigation_drawer/navigation_drawer_bloc.dart';
+import 'package:trag_work/models/ui/breadcrumb_item_model.dart';
 import 'package:trag_work/views/theme/theme.dart';
 import 'package:trag_work/views/utils/responsive.dart';
 
@@ -33,53 +34,57 @@ class Header extends StatelessWidget {
 }
 
 class _BreadcrumbsCard extends StatelessWidget {
+  final List<BreadcrumbItemModel> breadCrumbItems = [
+    BreadcrumbItemModel(title: 'itemA', onTap: () {}),
+    BreadcrumbItemModel(title: 'itemB', onTap: () {}),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(left: CorePadding.normal),
       child: Row(
         children: [
-          Material(
-            child: Ink(
-              decoration: ShapeDecoration(
-                color: CoreColors.grey,
-                shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(CoreContansts.borderRadius),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(CoreContansts.borderRadius),
+            child: Material(
+              child: Ink(
+                decoration: ShapeDecoration(
+                  color: CoreColors.grey,
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(CoreContansts.borderRadius),
+                  ),
                 ),
-              ),
-              child: IconButton(
-                icon: Transform.rotate(
-                  angle: 180 * math.pi / 180,
-                  child: Icon(Icons.arrow_right_alt_sharp),
+                child: IconButton(
+                  icon: Transform.rotate(
+                    angle: 180 * math.pi / 180,
+                    child: Icon(Icons.arrow_right_alt_sharp),
+                  ),
+                  onPressed: () {
+                    print('pressed');
+                  },
                 ),
-                onPressed: () {
-                  print('pressed');
-                },
               ),
             ),
           ),
-          SizedBox(
-            width: CorePadding.bigger,
-          ),
-          BreadCrumb(
-            items: <BreadCrumbItem>[
-              BreadCrumbItem(
+          SizedBox(width: CorePadding.normal),
+          BreadCrumb.builder(
+            itemCount: breadCrumbItems.length,
+            builder: (index) {
+              final item = breadCrumbItems[index];
+              return BreadCrumbItem(
                 content: Text(
-                  'Item1',
-                  style: Theme.of(context).textTheme.bodyText1,
+                  item.title,
+                  style: breadCrumbItems.length == index + 1
+                      ? Theme.of(context).textTheme.bodyText2
+                      : Theme.of(context).textTheme.bodyText1,
                 ),
                 padding:
                     const EdgeInsets.symmetric(horizontal: CorePadding.small),
-              ),
-              BreadCrumbItem(
-                content: Text(
-                  'Item2',
-                  style: Theme.of(context).textTheme.bodyText2,
-                ),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: CorePadding.small),
-              ),
-            ],
+                onTap: item.onTap,
+              );
+            },
             divider: Icon(Icons.chevron_right, color: Colors.black26),
           ),
         ],
