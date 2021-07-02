@@ -208,8 +208,8 @@ class _ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: CorePadding.big),
-      padding: EdgeInsets.symmetric(
+      margin: const EdgeInsets.only(bottom: CorePadding.big),
+      padding: const EdgeInsets.symmetric(
         horizontal: CorePadding.normal,
         vertical: CorePadding.small,
       ),

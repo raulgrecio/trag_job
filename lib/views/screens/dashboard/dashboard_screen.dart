@@ -9,7 +9,7 @@ class DashboardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
-        padding: EdgeInsets.all(CorePadding.normal),
+        padding: const EdgeInsets.all(CorePadding.normal),
         child: Column(
           children: [
             Header(),

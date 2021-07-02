@@ -18,11 +18,16 @@ class Header extends StatelessWidget {
     return Row(
       children: [
         if (!Responsive.isDesktop(context))
-          IconButton(
-            icon: Icon(Icons.menu),
-            onPressed: () {
-              drawerBloc.add(OpenDrawer());
-            },
+          ClipRRect(
+            borderRadius: BorderRadius.circular(CoreContansts.borderRadius),
+            child: Material(
+              child: IconButton(
+                icon: Icon(Icons.menu),
+                onPressed: () {
+                  drawerBloc.add(OpenDrawer());
+                },
+              ),
+            ),
           ),
         if (!Responsive.isMobile(context)) _BreadcrumbsCard(),
         if (!Responsive.isMobile(context))
@@ -114,14 +119,14 @@ class _SearchField extends StatelessWidget {
             child: InkWell(
               onTap: () {},
               child: Container(
-                padding: EdgeInsets.all(CorePadding.normal * 0.75),
+                padding: const EdgeInsets.all(CorePadding.normal * 0.75),
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(20)),
                 ),
                 child: SvgPicture.asset(
                   "assets/icons/search.svg",
                   color: Colors.black87,
-                  width: 20.0,
+                  width: 16.0,
                 ),
               ),
             ),
