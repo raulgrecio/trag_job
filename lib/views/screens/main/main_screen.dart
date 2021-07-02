@@ -12,32 +12,35 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final drawerBloc = BlocProvider.of<NavigationDrawerBloc>(context);
 
-    return Scaffold(
-      key: drawerBloc.scaffoldKey,
-      drawer: SideMenu(),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.ac_unit_sharp),
-        onPressed: () {
-          drawerBloc.add(NavigateTo(NavItem.page_null));
-          if (!Responsive.isDesktop(context)) {
-            drawerBloc.add(OpenDrawer());
-          }
-        },
-      ),
-      body: SafeArea(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            if (Responsive.isDesktop(context))
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        key: drawerBloc.scaffoldKey,
+        drawer: SideMenu(),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.ac_unit_sharp),
+          onPressed: () {
+            drawerBloc.add(NavigateTo(NavItem.page_null));
+            if (!Responsive.isDesktop(context)) {
+              drawerBloc.add(OpenDrawer());
+            }
+          },
+        ),
+        body: SafeArea(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (Responsive.isDesktop(context))
+                Expanded(
+                  flex: 3,
+                  child: SideMenu(),
+                ),
               Expanded(
-                flex: 3,
-                child: SideMenu(),
+                flex: 8,
+                child: DashboardScreen(),
               ),
-            Expanded(
-              flex: 8,
-              child: DashboardScreen(),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
