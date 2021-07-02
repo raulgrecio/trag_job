@@ -65,7 +65,6 @@ class CoreColors {
   static const secondary = Color(0xFF000000);
   static const grey = Color(0xFFF8F8F8);
   static const background = Color(0xFFFEFEFE);
-  static const selectedNavItemRow = primary;
 }
 
 class CorePadding {
