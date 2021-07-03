@@ -63,8 +63,8 @@ class CoreColors {
 
   static const primary = Color(0xFFFFCA40);
   static const secondary = Color(0xFF000000);
-  static const grey = Color(0xFFF8F8F8);
-  static const background = Color(0xFFFEFEFE);
+  static const grey = Color(0xFFEEEEEE);
+  static const background = Color(0xFFF9F9F9);
 }
 
 class CorePadding {
