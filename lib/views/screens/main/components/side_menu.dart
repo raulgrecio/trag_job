@@ -83,15 +83,15 @@ class _DrawerList extends StatelessWidget {
             children: [
               _DrawerListTile(
                 title: "Dashboard",
-                svgSrc: "assets/icons/menu_dashbord.svg",
+                svgSrc: "assets/icons/menu/dashbord_menu.svg",
                 press: () {
                   drawerBloc.add(NavigateTo(NavItem.page_one));
                 },
                 selected: NavItem.page_one == state.selectedItem,
               ),
               _DrawerListTile(
-                title: "Works",
-                svgSrc: "assets/icons/menu_works.svg",
+                title: "Jobs",
+                svgSrc: "assets/icons/menu/works_menu.svg",
                 press: () {
                   drawerBloc.add(NavigateTo(NavItem.page_two));
                 },
@@ -99,7 +99,7 @@ class _DrawerList extends StatelessWidget {
               ),
               _DrawerListTile(
                 title: "Messages",
-                svgSrc: "assets/icons/menu_messages.svg",
+                svgSrc: "assets/icons/menu/messages_menu.svg",
                 press: () {
                   drawerBloc.add(NavigateTo(NavItem.page_three));
                 },
@@ -107,7 +107,7 @@ class _DrawerList extends StatelessWidget {
               ),
               _DrawerListTile(
                 title: "Bills",
-                svgSrc: "assets/icons/menu_bills.svg",
+                svgSrc: "assets/icons/menu/bills_menu.svg",
                 press: () {
                   drawerBloc.add(NavigateTo(NavItem.page_four));
                 },
@@ -115,7 +115,7 @@ class _DrawerList extends StatelessWidget {
               ),
               _DrawerListTile(
                 title: "Settings",
-                svgSrc: "assets/icons/menu_settings.svg",
+                svgSrc: "assets/icons/menu/settings_menu.svg",
                 press: () {
                   drawerBloc.add(NavigateTo(NavItem.page_five));
                 },
@@ -126,7 +126,7 @@ class _DrawerList extends StatelessWidget {
               ),
               _DrawerListTile(
                 title: "Notifications",
-                svgSrc: "assets/icons/menu_notifications.svg",
+                svgSrc: "assets/icons/menu/notifications_menu.svg",
                 press: () {
                   drawerBloc.add(NavigateTo(NavItem.page_six));
                 },
@@ -134,7 +134,7 @@ class _DrawerList extends StatelessWidget {
               ),
               _DrawerListTile(
                 title: "Support",
-                svgSrc: "assets/icons/menu_support.svg",
+                svgSrc: "assets/icons/menu/support_menu.svg",
                 press: () {
                   drawerBloc.add(NavigateTo(NavItem.page_seven));
                 },
