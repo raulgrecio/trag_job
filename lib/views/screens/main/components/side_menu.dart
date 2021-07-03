@@ -60,7 +60,7 @@ class _DrawerLogo extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(
             horizontal: CorePadding.normal,
-            vertical: CorePadding.normal,
+            vertical: CorePadding.smaller,
           ),
           child: Image.asset("assets/images/logo.png"),
         ),
@@ -90,8 +90,8 @@ class _DrawerList extends StatelessWidget {
                 selected: NavItem.page_one == state.selectedItem,
               ),
               _DrawerListTile(
-                title: "Food & Drinks",
-                svgSrc: "assets/icons/menu_food.svg",
+                title: "Works",
+                svgSrc: "assets/icons/menu_works.svg",
                 press: () {
                   drawerBloc.add(NavigateTo(NavItem.page_two));
                 },
