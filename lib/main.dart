@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 import 'blocs/navigation_drawer/navigation_drawer_bloc.dart';
-
 import 'views/screens/main/main_screen.dart';
 import 'views/theme/theme.dart';
 
-void main() {
+void main() async {
+  await initializeDateFormatting("en_US", null);
+
   runApp(MyApp());
 }
 
