@@ -6,39 +6,47 @@ import 'package:trag_work/blocs/navigation_drawer/navigation_drawer_bloc.dart';
 import 'package:trag_work/views/theme/theme.dart';
 import 'package:trag_work/views/utils/responsive.dart';
 
+const logoHeight = 100.0;
+const elevation = 16.0;
+
 class SideMenu extends StatelessWidget {
   const SideMenu({
     Key? key,
   }) : super(key: key);
 
-  final logoHeight = 100.0;
-
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final topPadding = mediaQuery.padding.top;
+    final minHeight = mediaQuery.size.height - logoHeight - topPadding;
+
     return Drawer(
-      elevation: (!Responsive.isDesktop(context)) ? 16.0 : 1.0,
-      child: Column(
-        children: [
-          _DrawerLogo(height: logoHeight),
-          Expanded(
-            child: SingleChildScrollView(
-              child: IntrinsicHeight(
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(
-                    minHeight: MediaQuery.of(context).size.height - logoHeight,
-                  ),
-                  child: Column(
-                    children: [
-                      _DrawerList(),
-                      Spacer(),
-                      _ProfileCard(),
-                    ],
+      elevation: (!Responsive.isDesktop(context)) ? elevation : 0,
+      child: SafeArea(
+        bottom: false,
+        child: Column(
+          children: [
+            _DrawerLogo(height: logoHeight),
+            Expanded(
+              child: SingleChildScrollView(
+                child: IntrinsicHeight(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      minHeight: minHeight,
+                    ),
+                    child: Column(
+                      children: [
+                        _DrawerList(),
+                        Spacer(),
+                        _ProfileCard(),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -57,10 +65,13 @@ class _DrawerLogo extends StatelessWidget {
       width: double.infinity,
       height: height,
       child: DrawerHeader(
+        margin: const EdgeInsets.only(bottom: 0),
         child: Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: CorePadding.normal,
-            vertical: CorePadding.smaller,
+          padding: const EdgeInsets.fromLTRB(
+            CorePadding.normal,
+            CorePadding.smaller,
+            CorePadding.normal,
+            CorePadding.normal,
           ),
           child: Image.asset("assets/images/logo.png"),
         ),
@@ -225,32 +236,31 @@ class _ProfileCard extends StatelessWidget {
               "assets/images/profile_pic.jpeg",
             ),
           ),
-          if (!Responsive.isMobile(context))
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: CorePadding.small),
-              child: Column(
-                children: [
-                  Text(
-                    "Theresa Webb",
-                    style: Theme.of(context).textTheme.headline6,
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: CorePadding.small),
+            child: Column(
+              children: [
+                Text(
+                  "Theresa Webb",
+                  style: Theme.of(context).textTheme.headline6,
+                ),
+                Text(
+                  "work \u00B7 4h 56h",
+                  style: Theme.of(context).textTheme.caption,
+                ),
+                SizedBox(
+                  height: CorePadding.normal,
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Open profile",
+                    style: Theme.of(context).textTheme.bodyText2,
                   ),
-                  Text(
-                    "work \u00B7 4h 56h",
-                    style: Theme.of(context).textTheme.caption,
-                  ),
-                  SizedBox(
-                    height: CorePadding.normal,
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Open profile",
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
+          ),
         ],
       ),
     );
