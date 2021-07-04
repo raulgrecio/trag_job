@@ -17,23 +17,64 @@ class Header extends StatelessWidget {
 
     return Row(
       children: [
-        if (!Responsive.isDesktop(context))
-          ClipRRect(
-            borderRadius: BorderRadius.circular(CoreConstant.borderRadius),
-            child: Material(
-              child: IconButton(
-                icon: Icon(Icons.menu),
-                onPressed: () {
-                  drawerBloc.add(OpenDrawer());
-                },
-              ),
-            ),
-          ),
+        _SideIcon(drawerBloc: drawerBloc),
+        SizedBox(width: CorePadding.normal),
         if (!Responsive.isMobile(context)) _BreadcrumbsCard(),
         if (!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 1 : 1),
         Expanded(child: _SearchField()),
       ],
+    );
+  }
+}
+
+class _SideIcon extends StatelessWidget {
+  const _SideIcon({
+    Key? key,
+    required this.drawerBloc,
+  }) : super(key: key);
+
+  final NavigationDrawerBloc drawerBloc;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!Responsive.isDesktop(context))
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(CoreConstant.borderRadius),
+        child: Material(
+          child: IconButton(
+            padding: const EdgeInsets.all(CorePadding.normal),
+            icon: Icon(Icons.menu),
+            onPressed: () {
+              drawerBloc.add(OpenDrawer());
+            },
+          ),
+        ),
+      );
+
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(CoreConstant.borderRadius),
+      child: Material(
+        child: Ink(
+          decoration: ShapeDecoration(
+            color: CoreColors.grey,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(CoreConstant.borderRadius),
+            ),
+          ),
+          child: IconButton(
+            padding: const EdgeInsets.all(CorePadding.normal),
+            icon: Transform.rotate(
+              angle: 180 * math.pi / 180,
+              child: Icon(Icons.arrow_right_alt_sharp),
+            ),
+            onPressed: () {
+              // TODO: CAMBIAR ESTO PARA QUE HABRA EL DRAWER
+              print('pressed');
+            },
+          ),
+        ),
+      ),
     );
   }
 }
@@ -48,52 +89,22 @@ class _BreadcrumbsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: CorePadding.normal),
-      child: Row(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(CoreConstant.borderRadius),
-            child: Material(
-              child: Ink(
-                decoration: ShapeDecoration(
-                  color: CoreColors.grey,
-                  shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(CoreConstant.borderRadius),
-                  ),
-                ),
-                child: IconButton(
-                  icon: Transform.rotate(
-                    angle: 180 * math.pi / 180,
-                    child: Icon(Icons.arrow_right_alt_sharp),
-                  ),
-                  onPressed: () {
-                    // TODO: CAMBIAR ESTO PARA QUE ABRA EL DRAWER
-                    print('pressed');
-                  },
-                ),
-              ),
+      child: BreadCrumb.builder(
+        itemCount: breadCrumbItems.length,
+        builder: (index) {
+          final item = breadCrumbItems[index];
+          return BreadCrumbItem(
+            content: Text(
+              item.title,
+              style: breadCrumbItems.length == index + 1
+                  ? Theme.of(context).textTheme.bodyText2
+                  : Theme.of(context).textTheme.bodyText1,
             ),
-          ),
-          SizedBox(width: CorePadding.normal),
-          BreadCrumb.builder(
-            itemCount: breadCrumbItems.length,
-            builder: (index) {
-              final item = breadCrumbItems[index];
-              return BreadCrumbItem(
-                content: Text(
-                  item.title,
-                  style: breadCrumbItems.length == index + 1
-                      ? Theme.of(context).textTheme.bodyText2
-                      : Theme.of(context).textTheme.bodyText1,
-                ),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: CorePadding.small),
-                onTap: item.onTap,
-              );
-            },
-            divider: Icon(Icons.chevron_right, color: Colors.black26),
-          ),
-        ],
+            padding: const EdgeInsets.symmetric(horizontal: CorePadding.small),
+            onTap: item.onTap,
+          );
+        },
+        divider: Icon(Icons.chevron_right, color: Colors.black26),
       ),
     );
   }
