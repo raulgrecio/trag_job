@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:trag_work/models/job_model.dart';
 
-import 'package:trag_work/views/screens/dashboard/components/job_card.dart';
+import 'package:trag_work/views/screens/job/components/job_card.dart';
 import 'package:trag_work/views/theme/theme.dart';
 import 'package:trag_work/views/utils/responsive.dart';
 

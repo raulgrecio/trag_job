@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:trag_work/views/screens/dashboard/components/jobs.dart';
+import 'package:trag_work/views/screens/job/components/jobs.dart';
 import 'package:trag_work/views/theme/theme.dart';
-import 'package:trag_work/views/utils/responsive.dart';
 
 import 'components/header.dart';
 
-class DashboardScreen extends StatelessWidget {
+class JobsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
