@@ -12,18 +12,19 @@ class Responsive extends StatelessWidget {
     required this.desktop,
   }) : super(key: key);
 
-  // TODO: PENDING TO REVIEW RESPONSIVE VALUES
+  static const breakpointMobile = 600;
+  static const breakpointTablet = 1024;
+  static const breakpointDesktopLarge = 1264;
 
-  // This isMobile, is Tablet, is Desktop help us later
   static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width < 600;
+      MediaQuery.of(context).size.width < breakpointMobile;
 
   static bool isTablet(BuildContext context) =>
-      MediaQuery.of(context).size.width < 1024 &&
-      MediaQuery.of(context).size.width >= 600;
+      MediaQuery.of(context).size.width < breakpointTablet &&
+      MediaQuery.of(context).size.width >= breakpointMobile;
 
   static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width >= 1024;
+      MediaQuery.of(context).size.width >= breakpointTablet;
 
   static bool portrait(BuildContext context) =>
       MediaQuery.of(context).orientation == Orientation.portrait;

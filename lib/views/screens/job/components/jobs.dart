@@ -40,12 +40,16 @@ class JobList extends StatelessWidget {
         SizedBox(height: CorePadding.normal),
         Responsive(
           mobile: FileInfoCardGridView(
-            crossAxisCount: _size.width < 650 ? 2 : 4,
-            childAspectRatio: _size.width < 650 ? 1.3 : 1,
+            crossAxisCount: _size.width < Responsive.breakpointTablet ? 2 : 4,
+            childAspectRatio:
+                _size.width < Responsive.breakpointTablet ? 1.3 : 1,
           ),
           tablet: FileInfoCardGridView(),
           desktop: FileInfoCardGridView(
-            childAspectRatio: _size.width < 1400 ? 1.1 : 1.4,
+            crossAxisCount:
+                _size.width < Responsive.breakpointDesktopLarge ? 3 : 4,
+            childAspectRatio:
+                _size.width < Responsive.breakpointDesktopLarge ? 1.1 : 1.4,
           ),
         ),
       ],
