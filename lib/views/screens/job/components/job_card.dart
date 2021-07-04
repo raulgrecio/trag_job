@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:trag_work/models/job_model.dart';
 
 import 'package:trag_work/views/theme/theme.dart';
+import 'package:trag_work/views/utils/responsive.dart';
 import 'package:trag_work/views/widgets/icon_job_widget.dart';
 import 'package:trag_work/views/widgets/progress_line_widget.dart';
 
@@ -30,20 +31,33 @@ class JobCard extends StatelessWidget {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Icon(Icons.more_vert, color: Colors.black54)],
+            children: [
+              if (Responsive.isMobile(context))
+                JobIcon(
+                  info.svgSrc!,
+                  color: info.color!,
+                  size: 40,
+                ),
+              Icon(Icons.more_vert, color: Colors.black54)
+            ],
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              JobIcon(
-                info.svgSrc!,
-                color: info.color!,
-                size: 60,
-              ),
-              SizedBox(width: CorePadding.normal),
-              Text(
-                info.title!,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+              if (!Responsive.isMobile(context))
+                JobIcon(
+                  info.svgSrc!,
+                  color: info.color!,
+                  size: 60,
+                ),
+              if (!Responsive.isMobile(context))
+                SizedBox(width: CorePadding.normal),
+              Expanded(
+                child: Text(
+                  info.title!,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),

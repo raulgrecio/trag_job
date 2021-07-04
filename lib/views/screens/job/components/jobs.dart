@@ -14,6 +14,7 @@ class JobList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
+
     return Column(
       children: [
         Row(
@@ -39,13 +40,13 @@ class JobList extends StatelessWidget {
         ),
         SizedBox(height: CorePadding.normal),
         Responsive(
-          mobile: FileInfoCardGridView(
-            crossAxisCount: _size.width < Responsive.breakpointTablet ? 2 : 4,
+          mobile: _JobCardGridView(
+            crossAxisCount: _size.width < Responsive.breakpointMobile ? 2 : 4,
             childAspectRatio:
-                _size.width < Responsive.breakpointTablet ? 1.3 : 1,
+                _size.width < Responsive.breakpointMobile ? 0.9 : 1,
           ),
-          tablet: FileInfoCardGridView(),
-          desktop: FileInfoCardGridView(
+          tablet: _JobCardGridView(),
+          desktop: _JobCardGridView(
             crossAxisCount:
                 _size.width < Responsive.breakpointDesktopLarge ? 3 : 4,
             childAspectRatio:
@@ -57,8 +58,8 @@ class JobList extends StatelessWidget {
   }
 }
 
-class FileInfoCardGridView extends StatelessWidget {
-  const FileInfoCardGridView({
+class _JobCardGridView extends StatelessWidget {
+  const _JobCardGridView({
     Key? key,
     this.crossAxisCount = 3,
     this.childAspectRatio = 1,

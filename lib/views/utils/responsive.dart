@@ -12,9 +12,9 @@ class Responsive extends StatelessWidget {
     required this.desktop,
   }) : super(key: key);
 
-  static const breakpointMobile = 600;
-  static const breakpointTablet = 1024;
-  static const breakpointDesktopLarge = 1264;
+  static const breakpointMobile = 600.0;
+  static const breakpointTablet = 1024.0;
+  static const breakpointDesktopLarge = 1264.0;
 
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width < breakpointMobile;

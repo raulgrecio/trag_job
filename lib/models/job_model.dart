@@ -28,7 +28,7 @@ List demoJobs = [
     percentage: 35,
   ),
   JobModel(
-    title: "Information",
+    title: "Growth information",
     date: "2021-07-01 13:33:29.971Z",
     svgSrc: "assets/icons/jobs/information_flat.svg",
     duration: 0.7,
