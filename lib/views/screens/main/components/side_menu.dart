@@ -183,7 +183,7 @@ class _DrawerListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(CoreConstant.borderRadius),
+      borderRadius: BorderRadius.circular(CoreConstant.borderRadiusSmall),
       child: Container(
         color: selected ? CoreColors.primary : null,
         child: ListTile(
@@ -199,7 +199,7 @@ class _DrawerListTile extends StatelessWidget {
             style: TextStyle(color: Colors.black87),
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(CoreConstant.borderRadius),
+            borderRadius: BorderRadius.circular(CoreConstant.borderRadiusSmall),
           ),
         ),
       ),

@@ -81,6 +81,7 @@ class CorePadding {
 class CoreConstant {
   CoreConstant._();
 
+  static const borderRadiusSmall = 16.0;
   static const borderRadius = 20.0;
   static const sizeIcon = 16.0;
 }
