@@ -69,7 +69,6 @@ class _SideIcon extends StatelessWidget {
               child: Icon(Icons.arrow_right_alt_sharp),
             ),
             onPressed: () {
-              // TODO: CAMBIAR ESTO PARA QUE HABRA EL DRAWER
               print('pressed');
             },
           ),

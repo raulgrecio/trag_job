@@ -18,7 +18,7 @@ class MainScreen extends StatelessWidget {
         key: drawerBloc.scaffoldKey,
         drawer: SideMenu(),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.ac_unit_sharp),
+          child: Icon(Icons.menu),
           onPressed: () {
             drawerBloc.add(NavigateTo(NavItem.page_null));
             if (!Responsive.isDesktop(context)) {
@@ -36,7 +36,7 @@ class MainScreen extends StatelessWidget {
                   child: SideMenu(),
                 ),
               Expanded(
-                flex: 8,
+                flex: 10,
                 child: JobsScreen(),
               ),
             ],

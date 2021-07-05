@@ -31,6 +31,11 @@ class JobList extends StatelessWidget {
                   vertical: CorePadding.normal /
                       (Responsive.isMobile(context) ? 2 : 1),
                 ),
+                backgroundColor: CoreColors.primary,
+                shape: RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(CoreConstant.borderRadiusSmall),
+                ),
               ),
               onPressed: () {},
               icon: Icon(Icons.add),

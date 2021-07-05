@@ -30,7 +30,7 @@ class NavigationDrawerBloc
 
   Future<NavigationDrawerState> _mapNavigateToState(
       NavigationDrawerState state, NavItem destination) async {
-    /* TODO: LUEGO QUITAR */
+    /* TODO: THEN REMOVE */
     if (destination == NavItem.page_null) {
       List<NavItem> fakeNav = [
         NavItem.page_one,
@@ -49,7 +49,7 @@ class NavigationDrawerBloc
       print(indexResult);
       destination = fakeNav[indexResult];
     }
-    /* TODO: LUEGO QUITAR */
+    /* TODO: THEN REMOVE */
 
     if (state.selectedItem != destination) {
       return state.copyWith(selectedItem: destination);
