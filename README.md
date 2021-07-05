@@ -1,4 +1,4 @@
-# trag_work
+# trag_job
 
 A new Flutter project.
 
@@ -14,3 +14,17 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+inspired by a design by [Dmitry Lauretsky](https://dribbble.com/shots/14408728-Point-of-Sale-System-App-Design)
+
+**iPhone**
+
+<img src="promo/iphone_12_pro_landscape.png?raw=true" width="550">
+
+<img src="promo/iphone_12_pro_portrait.png?raw=true" width="300">
+
+**iPad**
+
+<img src="promo/ipad_pro_landscape.png?raw=true" width="550">
+
+<img src="promo/ipad_pro_portrait.png?raw=true" width="300">
