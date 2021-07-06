@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:trag_work/blocs/navigation_drawer/navigation_drawer_bloc.dart';
+import 'package:trag_work/side_menu/bloc/navigation_drawer_bloc.dart';
 import 'package:trag_work/views/theme/theme.dart';
 import 'package:trag_work/views/utils/responsive.dart';
 

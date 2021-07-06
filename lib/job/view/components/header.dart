@@ -5,8 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_breadcrumb/flutter_breadcrumb.dart';
 
-import 'package:trag_work/blocs/navigation_drawer/navigation_drawer_bloc.dart';
-import 'package:trag_work/models/ui/breadcrumb_item_model.dart';
+import 'package:trag_work/side_menu/bloc/navigation_drawer_bloc.dart';
+import 'package:trag_work/side_menu/models/breadcrumb_item_model.dart';
 import 'package:trag_work/views/theme/theme.dart';
 import 'package:trag_work/views/utils/responsive.dart';
 

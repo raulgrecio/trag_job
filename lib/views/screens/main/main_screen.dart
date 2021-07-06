@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:trag_work/blocs/navigation_drawer/navigation_drawer_bloc.dart';
 import 'package:trag_work/job/view/jobs_screen.dart';
+import 'package:trag_work/side_menu/side_menu.dart';
 import 'package:trag_work/views/utils/responsive.dart';
-
-import 'components/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
   @override
