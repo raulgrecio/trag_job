@@ -5,7 +5,7 @@ import 'package:trag_work/features/job/view/jobs_content.dart';
 import 'package:trag_work/features/side_menu/side_menu.dart';
 import 'package:trag_work/utils/responsive.dart';
 
-class MainScreen extends StatelessWidget {
+class JobsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final drawerBloc = BlocProvider.of<NavigationDrawerBloc>(context);

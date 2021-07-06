@@ -26,7 +26,7 @@ class App extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'TragWork',
         theme: coreThemeData,
-        home: MainScreen(),
+        home: JobsScreen(),
       ),
     );
   }
