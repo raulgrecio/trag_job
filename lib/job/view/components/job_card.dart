@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:trag_work/models/job_model.dart';
-
+import 'package:trag_work/job/models/models.dart';
 import 'package:trag_work/views/theme/theme.dart';
 import 'package:trag_work/views/utils/responsive.dart';
 import 'package:trag_work/views/widgets/icon_job_widget.dart';

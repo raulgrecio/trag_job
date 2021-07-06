@@ -2,8 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import 'package:trag_work/models/job_model.dart';
-import 'package:trag_work/models/jobs_model.dart';
+import 'package:trag_work/job/models/models.dart';
 
 abstract class JobsProvider {
   String apikey;

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:trag_work/blocs/jobs/jobs_bloc.dart';
 
-import 'package:trag_work/views/screens/job/components/job_card.dart';
+import 'package:trag_work/job/bloc/jobs_bloc.dart';
 import 'package:trag_work/views/theme/theme.dart';
 import 'package:trag_work/views/utils/responsive.dart';
+
+import 'job_card.dart';
 
 class JobList extends StatelessWidget {
   const JobList({

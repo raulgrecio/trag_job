@@ -1,4 +1,4 @@
-import 'package:trag_work/models/job_model.dart';
+import 'package:trag_work/job/models/job_model.dart';
 import 'package:trag_work/services/jobs_provider.dart';
 
 class JobRepository {

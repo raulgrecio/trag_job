@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:trag_work/models/jobs_model.dart';
+import 'package:meta/meta.dart';
+
+import 'package:trag_work/job/models/models.dart';
 import 'package:trag_work/services/jobs_repository.dart';
 
 part 'jobs_event.dart';
