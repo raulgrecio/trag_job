@@ -4,8 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
-import 'package:trag_work/job/models/models.dart';
-import 'package:trag_work/services/jobs_repository.dart';
+import 'package:trag_work/features/job/models/models.dart';
+import 'package:trag_work/repository/jobs_repository.dart';
 
 part 'jobs_event.dart';
 part 'jobs_state.dart';

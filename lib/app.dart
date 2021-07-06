@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'job/job.dart';
-import 'side_menu/side_menu.dart';
-import 'services/jobs_repository.dart';
-import 'views/screens/main/main_screen.dart';
-import 'views/theme/theme.dart';
+import 'features/job/job.dart';
+import 'features/side_menu/side_menu.dart';
+import 'repository/jobs_repository.dart';
+import 'theme/theme.dart';
 
 class App extends StatelessWidget {
   const App({Key? key, required this.jobRepository}) : super(key: key);

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:trag_work/job/models/models.dart';
-import 'package:trag_work/views/theme/theme.dart';
-import 'package:trag_work/views/utils/responsive.dart';
-import 'package:trag_work/views/widgets/icon_job_widget.dart';
-import 'package:trag_work/views/widgets/progress_line_widget.dart';
+import 'package:trag_work/features/job/models/models.dart';
+import 'package:trag_work/theme/theme.dart';
+import 'package:trag_work/utils/responsive.dart';
+import 'package:trag_work/widgets/icon_job_widget.dart';
+import 'package:trag_work/widgets/progress_line_widget.dart';
 
 class JobCard extends StatelessWidget {
   const JobCard({

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:trag_work/app.dart';
-import 'package:trag_work/services/jobs_repository.dart';
+import 'package:trag_work/repository/jobs_repository.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

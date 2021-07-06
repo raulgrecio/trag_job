@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:trag_work/job/bloc/jobs_bloc.dart';
-import 'package:trag_work/views/theme/theme.dart';
-import 'package:trag_work/views/utils/responsive.dart';
+import 'package:trag_work/features/job/bloc/jobs_bloc.dart';
+import 'package:trag_work/theme/theme.dart';
+import 'package:trag_work/utils/responsive.dart';
 
 import 'job_card.dart';
 

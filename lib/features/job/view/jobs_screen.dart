@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:trag_work/views/theme/theme.dart';
+import 'package:trag_work/theme/theme.dart';
 
 import 'components/header.dart';
 import 'components/jobs.dart';

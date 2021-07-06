@@ -1,5 +1,5 @@
-import 'package:trag_work/job/models/job_model.dart';
-import 'package:trag_work/services/jobs_provider.dart';
+import 'package:trag_work/features/job/models/job_model.dart';
+import 'package:trag_work/repository/jobs_provider.dart';
 
 class JobRepository {
   JobsProvider _jobsProvider = JobsFakeProvider(
