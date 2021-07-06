@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'package:trag_work/models/job_model.dart';
-
-import 'package:trag_work/views/theme/theme.dart';
-import 'package:trag_work/views/utils/responsive.dart';
-import 'package:trag_work/views/widgets/icon_job_widget.dart';
-import 'package:trag_work/views/widgets/progress_line_widget.dart';
+import 'package:trag_work/features/job/models/models.dart';
+import 'package:trag_work/theme/theme.dart';
+import 'package:trag_work/utils/responsive.dart';
+import 'package:trag_work/widgets/icon_job_widget.dart';
+import 'package:trag_work/widgets/progress_line_widget.dart';
 
 class JobCard extends StatelessWidget {
   const JobCard({
@@ -34,8 +33,8 @@ class JobCard extends StatelessWidget {
             children: [
               if (Responsive.isMobile(context))
                 JobIcon(
-                  info.svgSrc!,
-                  color: info.color!,
+                  info.svgSrc,
+                  color: info.color,
                   size: 40,
                 ),
               Icon(Icons.more_vert, color: Colors.black54)
@@ -46,15 +45,15 @@ class JobCard extends StatelessWidget {
             children: [
               if (!Responsive.isMobile(context))
                 JobIcon(
-                  info.svgSrc!,
-                  color: info.color!,
+                  info.svgSrc,
+                  color: info.color,
                   size: 60,
                 ),
               if (!Responsive.isMobile(context))
                 SizedBox(width: CorePadding.normal),
               Expanded(
                 child: Text(
-                  info.title!,
+                  info.title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -76,7 +75,7 @@ class JobCard extends StatelessWidget {
                     .copyWith(color: Colors.black87),
               ),
               Text(
-                DateFormat('yy-MM-dd', 'ln').format(DateTime.parse(info.date!)),
+                DateFormat('yy-MM-dd', 'ln').format(DateTime.parse(info.date)),
                 style: Theme.of(context)
                     .textTheme
                     .caption!

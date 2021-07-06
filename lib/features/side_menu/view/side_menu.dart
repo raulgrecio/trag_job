@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:trag_work/blocs/navigation_drawer/navigation_drawer_bloc.dart';
-import 'package:trag_work/views/theme/theme.dart';
-import 'package:trag_work/views/utils/responsive.dart';
+import 'package:trag_work/features/side_menu/bloc/side_menu_bloc.dart';
+import 'package:trag_work/theme/theme.dart';
+import 'package:trag_work/utils/responsive.dart';
 
 const logoHeight = 100.0;
 const elevation = 16.0;

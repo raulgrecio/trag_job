@@ -1,11 +1,13 @@
-part of 'navigation_drawer_bloc.dart';
+part of 'side_menu_bloc.dart';
 
 class NavigationDrawerState extends Equatable {
   const NavigationDrawerState({
     this.selectedItem = NavItem.page_one,
+    this.openDrawer = false,
   });
 
   final NavItem selectedItem;
+  final bool openDrawer;
 
   NavigationDrawerState copyWith({
     NavItem? selectedItem,
@@ -13,11 +15,12 @@ class NavigationDrawerState extends Equatable {
   }) {
     return NavigationDrawerState(
       selectedItem: selectedItem ?? this.selectedItem,
+      openDrawer: openDrawer ?? this.openDrawer,
     );
   }
 
   @override
-  List<Object> get props => [selectedItem];
+  List<Object> get props => [selectedItem, openDrawer];
 }
 
 // them to support your pages
