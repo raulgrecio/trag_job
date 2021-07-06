@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:trag_work/features/job/view/jobs_screen.dart';
+import 'package:trag_work/features/job/view/jobs_content.dart';
 import 'package:trag_work/features/side_menu/side_menu.dart';
 import 'package:trag_work/utils/responsive.dart';
 
@@ -35,7 +35,7 @@ class MainScreen extends StatelessWidget {
                 ),
               Expanded(
                 flex: 10,
-                child: JobsScreen(),
+                child: JobsContent(),
               ),
             ],
           ),

@@ -1,4 +1,4 @@
-part of 'navigation_drawer_bloc.dart';
+part of 'side_menu_bloc.dart';
 
 abstract class NavigationDrawerEvent extends Equatable {
   const NavigationDrawerEvent();
