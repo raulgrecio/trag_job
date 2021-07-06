@@ -2,22 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+import 'blocs/jobs/jobs_bloc.dart';
 import 'blocs/navigation_drawer/navigation_drawer_bloc.dart';
+import 'services/jobs_repository.dart';
 import 'views/screens/main/main_screen.dart';
 import 'views/theme/theme.dart';
 
 void main() async {
   await initializeDateFormatting("en_US", null);
 
-  runApp(MyApp());
+  runApp(App(jobRepository: JobRepository()));
 }
 
-class MyApp extends StatelessWidget {
+class App extends StatelessWidget {
+  const App({Key? key, required this.jobRepository}) : super(key: key);
+
+  final JobRepository jobRepository;
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (BuildContext _) => new NavigationDrawerBloc()),
+        BlocProvider(
+          create: (_) => JobsBloc(
+            jobRepository: jobRepository,
+          )..add(JobsStarted()),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

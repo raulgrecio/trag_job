@@ -34,8 +34,8 @@ class JobCard extends StatelessWidget {
             children: [
               if (Responsive.isMobile(context))
                 JobIcon(
-                  info.svgSrc!,
-                  color: info.color!,
+                  info.svgSrc,
+                  color: info.color,
                   size: 40,
                 ),
               Icon(Icons.more_vert, color: Colors.black54)
@@ -46,15 +46,15 @@ class JobCard extends StatelessWidget {
             children: [
               if (!Responsive.isMobile(context))
                 JobIcon(
-                  info.svgSrc!,
-                  color: info.color!,
+                  info.svgSrc,
+                  color: info.color,
                   size: 60,
                 ),
               if (!Responsive.isMobile(context))
                 SizedBox(width: CorePadding.normal),
               Expanded(
                 child: Text(
-                  info.title!,
+                  info.title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -76,7 +76,7 @@ class JobCard extends StatelessWidget {
                     .copyWith(color: Colors.black87),
               ),
               Text(
-                DateFormat('yy-MM-dd', 'ln').format(DateTime.parse(info.date!)),
+                DateFormat('yy-MM-dd', 'ln').format(DateTime.parse(info.date)),
                 style: Theme.of(context)
                     .textTheme
                     .caption!
